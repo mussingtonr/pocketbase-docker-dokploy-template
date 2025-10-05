@@ -1,0 +1,32 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# GitHub
+.github
+
+# Docker
+docker-compose.yml
+Dockerfile
+.dockerignore
+
+# Documentation
+README.md
+LICENSE
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# Data directories (these should be mounted as volumes)
+pb_data
+pb_public
+pb_migrations
+pb_hooks
+
+# OS
+.DS_Store
+Thumbs.db

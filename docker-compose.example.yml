@@ -1,0 +1,35 @@
+version: "3.7"
+services:
+  pocketbase:
+    image: mussingtonr/pocketbase:latest
+    container_name: pocketbase
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./pb_data:/pb_data
+      - ./pb_public:/pb_public
+      - ./pb_migrations:/pb_migrations
+      - ./pb_hooks:/pb_hooks
+    environment:
+      # Timezone configuration
+      - TZ=America/New_York
+      
+      # Optional: Admin user credentials
+      # Uncomment and set these to automatically create/update an admin user
+      # - POCKETBASE_ADMIN_EMAIL=admin@example.com
+      # - POCKETBASE_ADMIN_PASSWORD=your-secure-password-here
+      
+      # Optional: Encryption key for securing settings in the database
+      # This encrypts sensitive data like OAuth2 secrets and SMTP passwords
+      # Generate a secure random key: openssl rand -base64 32
+      # - POCKETBASE_ENCRYPTION_KEY=your-encryption-key-here
+      
+      # Optional: Custom port (default: 80)
+      # - POCKETBASE_PORT=8090
+      
+      # Optional: Custom directory paths (if you need to change the defaults)
+      # - POCKETBASE_DATA_DIR=/pb_data
+      # - POCKETBASE_PUBLIC_DIR=/pb_public
+      # - POCKETBASE_MIGRATIONS_DIR=/pb_migrations
+      # - POCKETBASE_HOOKS_DIR=/pb_hooks

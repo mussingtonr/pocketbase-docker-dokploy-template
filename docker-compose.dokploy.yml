@@ -1,0 +1,21 @@
+services:
+  pocketbase:
+    image: mussingtonr/pocketbase:latest
+    restart: unless-stopped
+    volumes:
+      - /etc/dokploy/templates/${HASH}/data:/pb_data
+      - /etc/dokploy/templates/${HASH}/public:/pb_public
+      - /etc/dokploy/templates/${HASH}/migrations:/pb_migrations
+      - /etc/dokploy/templates/${HASH}/hooks:/pb_hooks
+    environment:
+      # Timezone configuration
+      - TZ=America/New_York
+      
+      # Optional: Admin user credentials
+      # Uncomment and set these to automatically create/update an admin user
+      # - POCKETBASE_ADMIN_EMAIL=admin@example.com
+      # - POCKETBASE_ADMIN_PASSWORD=your-secure-password-here
+      
+      # Optional: Encryption key for securing settings in the database
+      # Generate a secure random key: openssl rand -base64 32
+      # - POCKETBASE_ENCRYPTION_KEY=your-encryption-key-here
