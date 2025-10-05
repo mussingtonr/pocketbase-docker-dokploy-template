@@ -1,8 +1,21 @@
 # PocketBase Docker Image
 
-**Note:** This image was built with [Dokploy](https://dokploy.com) in mind. The current Dokploy images for PocketBase weren't serving my needs, so I built an imageto work seamlessly with Dokploy deployments.
+[![Docker Image Version](https://img.shields.io/docker/v/mussingtonr/pocketbase?sort=semver&label=version)](https://hub.docker.com/r/mussingtonr/pocketbase)
+[![Docker Image Size](https://img.shields.io/docker/image-size/mussingtonr/pocketbase/latest?label=image%20size)](https://hub.docker.com/r/mussingtonr/pocketbase)
+[![Docker Pulls](https://img.shields.io/docker/pulls/mussingtonr/pocketbase)](https://hub.docker.com/r/mussingtonr/pocketbase)
+[![GitHub](https://img.shields.io/github/license/mussingtonr/pocketbase-docker-dokploy-template)](https://github.com/mussingtonr/pocketbase-docker-dokploy-template)
 
-Pulling `mussingtonr/pocketbase:latest` will retrieve the correct image for your arch.
+**Docker version of PocketBase - backend for your next SaaS and Mobile App**
+
+**Note:** This image was built with [Dokploy](https://dokploy.com) in mind. The current Dokploy images for PocketBase weren't serving my needs, so I built an image specifically designed to work seamlessly with Dokploy deployments.
+
+## Supported Architectures
+
+- `linux/amd64` - x86-64
+- `linux/arm64` - ARM64
+- `linux/arm/v7` - ARMv7
+
+Pulling `mussingtonr/pocketbase:latest` will retrieve the correct image for your architecture.
 
 ## Application Setup
 
