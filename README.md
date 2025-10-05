@@ -1,11 +1,11 @@
 
 # PocketBase Docker Image
 
-[![Docker Image Version](https://img.shields.io/docker/v/mussingtonr/pocketbase?sort=semver&label=version&style=for-the-badge)](https://hub.docker.com/r/mussingtonr/pocketbase)
-[![PocketBase Version](https://img.shields.io/badge/pocketbase-v0.30.1-blue?style=for-the-badge)](https://github.com/pocketbase/pocketbase)
-[![Docker Image Size](https://img.shields.io/docker/image-size/mussingtonr/pocketbase/latest?label=image%20size&style=for-the-badge)](https://hub.docker.com/r/mussingtonr/pocketbase)
-[![Docker Pulls](https://img.shields.io/docker/pulls/mussingtonr/pocketbase?style=for-the-badge)](https://hub.docker.com/r/mussingtonr/pocketbase)
-[![GitHub](https://img.shields.io/github/license/mussingtonr/pocketbase-docker-dokploy-template?style=for-the-badge)](https://github.com/mussingtonr/pocketbase-docker-dokploy-template)
+[![Docker Image Version](https://img.shields.io/docker/v/mussingtonr/pocketbase?sort=semver&label=version&style=for-the-badge&logo=docker&logoColor=white)](https://hub.docker.com/r/mussingtonr/pocketbase)
+[![PocketBase Version](https://img.shields.io/badge/pocketbase-v0.30.1-blue?style=for-the-badge&logo=pocketbase&logoColor=white)](https://github.com/pocketbase/pocketbase)
+[![Docker Image Size](https://img.shields.io/docker/image-size/mussingtonr/pocketbase/latest?label=image%20size&style=for-the-badge&logo=docker&logoColor=white)](https://hub.docker.com/r/mussingtonr/pocketbase)
+[![Docker Pulls](https://img.shields.io/docker/pulls/mussingtonr/pocketbase?style=for-the-badge&logo=docker&logoColor=white)](https://hub.docker.com/r/mussingtonr/pocketbase)
+[![GitHub](https://img.shields.io/github/license/mussingtonr/pocketbase-docker-dokploy-template?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mussingtonr/pocketbase-docker-dokploy-template)
 
 I've created this auto-updating Docker image for [PocketBase](https://pocketbase.io). The image is specifically designed for [Dokploy](https://dokploy.com) deployments, as the current Dokploy templates for PocketBase weren't meeting my needs.
 
