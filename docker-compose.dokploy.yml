@@ -3,10 +3,10 @@ services:
     image: mussingtonr/pocketbase:latest
     restart: unless-stopped
     volumes:
-      - /etc/dokploy/templates/${HASH}/data:/pb_data
-      - /etc/dokploy/templates/${HASH}/public:/pb_public
-      - /etc/dokploy/templates/${HASH}/migrations:/pb_migrations
-      - /etc/dokploy/templates/${HASH}/hooks:/pb_hooks
+      - ../files/pb_data:/pb_data
+      - ../files/pb_public:/pb_public
+      - ../files/pb_migrations:/pb_migrations
+      - ../files/pb_hooks:/pb_hooks
     environment:
       # Timezone configuration
       - TZ=America/New_York
