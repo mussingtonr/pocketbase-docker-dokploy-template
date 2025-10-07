@@ -1,4 +1,5 @@
 
+
 # PocketBase Docker Image
 
 [![Docker Image Version](https://img.shields.io/docker/v/mussingtonr/pocketbase?sort=semver&label=version&style=for-the-badge&logo=docker&logoColor=white)](https://hub.docker.com/r/mussingtonr/pocketbase)
@@ -58,7 +59,6 @@ I've added support for several environment variables to make the image more conf
 I've included a basic [`docker-compose.yml`](https://github.com/mussingtonr/pocketbase-docker-dokploy-template/blob/main/docker-compose.example.yml) file for standard deployments:
 
 ```yaml
-version: "3.7"
 services:
   pocketbase:
     image: mussingtonr/pocketbase:latest
@@ -82,7 +82,7 @@ services:
 
 ## Dokploy Deployment
 
-I've created a dedicated [`docker-compose.dokploy.yml`](https://github.com/mussingtonr/pocketbase-docker-dokploy-template/blob/main/docker-compose.dokploy.yml) template specifically for Dokploy deployments. This template uses Dokploy's standard volume path structure with the `${HASH}` variable:
+I've created a dedicated [`docker-compose.dokploy.yml`](https://github.com/mussingtonr/pocketbase-docker-dokploy-template/blob/main/docker-compose.dokploy.yml) template specifically for Dokploy deployments. This template uses Dokploy's standard volume path structure.
 
 ```yaml
 services:
@@ -90,20 +90,23 @@ services:
     image: mussingtonr/pocketbase:latest
     restart: unless-stopped
     volumes:
-      - /etc/dokploy/templates/${HASH}/data:/pb_data
-      - /etc/dokploy/templates/${HASH}/public:/pb_public        # Optional
-      - /etc/dokploy/templates/${HASH}/migrations:/pb_migrations # Optional
-      - /etc/dokploy/templates/${HASH}/hooks:/pb_hooks          # Optional
+      - ../files/pb_data:/pb_data
+      - ../files/pb_public:/pb_public
+      - ../files/pb_migrations:/pb_migrations
+      - ../files/pb_hooks:/pb_hooks
     environment:
+      # Timezone configuration
       - TZ=America/New_York
-      # Optional: Uncomment to auto-create admin user
+      
+      # Optional: Admin user credentials
+      # Uncomment and set these to automatically create/update an admin user
       # - POCKETBASE_ADMIN_EMAIL=admin@example.com
-      # - POCKETBASE_ADMIN_PASSWORD=your-secure-password
-      # Optional: Uncomment to encrypt sensitive settings
-      # - POCKETBASE_ENCRYPTION_KEY=your-32-character-key
+      # - POCKETBASE_ADMIN_PASSWORD=your-secure-password-here
+      
+      # Optional: Encryption key for securing settings in the database
+      # Generate a secure random key: openssl rand -base64 32
+      # - POCKETBASE_ENCRYPTION_KEY=your-encryption-key-here
 ```
-
-The `${HASH}` variable will be automatically replaced by Dokploy with your service's unique identifier. Make sure you define this in your environment variables. PocketBase data will be organized under a single hash-based directory in Dokploy's template storage.
 
 ## Updates
 
