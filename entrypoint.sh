@@ -47,10 +47,10 @@ if [ -n "$POCKETBASE_ADMIN_EMAIL" ] && [ -n "$POCKETBASE_ADMIN_PASSWORD" ]; then
         sleep 1
     done
     
-    # Create or update admin user
-    /usr/local/bin/pocketbase admin create "$POCKETBASE_ADMIN_EMAIL" "$POCKETBASE_ADMIN_PASSWORD" \
+    # Create or update admin user using the superuser command (PocketBase 0.9+)
+    /usr/local/bin/pocketbase superuser create "$POCKETBASE_ADMIN_EMAIL" "$POCKETBASE_ADMIN_PASSWORD" \
         --dir="${POCKETBASE_DATA_DIR}" 2>/dev/null || \
-    /usr/local/bin/pocketbase admin update "$POCKETBASE_ADMIN_EMAIL" "$POCKETBASE_ADMIN_PASSWORD" \
+    /usr/local/bin/pocketbase superuser update "$POCKETBASE_ADMIN_EMAIL" "$POCKETBASE_ADMIN_PASSWORD" \
         --dir="${POCKETBASE_DATA_DIR}" || true
     
     echo "Admin user setup complete"
