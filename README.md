@@ -1,9 +1,8 @@
 
-
 # PocketBase Docker Image
 
 [![Docker Image Version](https://img.shields.io/docker/v/mussingtonr/pocketbase?sort=semver&label=version&style=for-the-badge&logo=docker&logoColor=white)](https://hub.docker.com/r/mussingtonr/pocketbase)
-[![PocketBase Version](https://img.shields.io/badge/pocketbase-v0.30.1-blue?style=for-the-badge&logo=pocketbase&logoColor=white)](https://github.com/pocketbase/pocketbase)
+[![PocketBase Version](https://img.shields.io/github/v/release/pocketbase/pocketbase?label=pocketbase&style=for-the-badge&logo=pocketbase&logoColor=white)](https://github.com/pocketbase/pocketbase/releases)
 [![Docker Image Size](https://img.shields.io/docker/image-size/mussingtonr/pocketbase/latest?label=image%20size&style=for-the-badge&logo=docker&logoColor=white)](https://hub.docker.com/r/mussingtonr/pocketbase)
 [![Docker Pulls](https://img.shields.io/docker/pulls/mussingtonr/pocketbase?style=for-the-badge&logo=docker&logoColor=white)](https://hub.docker.com/r/mussingtonr/pocketbase)
 [![GitHub](https://img.shields.io/github/license/mussingtonr/pocketbase-docker-dokploy-template?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mussingtonr/pocketbase-docker-dokploy-template)
@@ -89,6 +88,9 @@ services:
   pocketbase:
     image: mussingtonr/pocketbase:latest
     restart: unless-stopped
+    pull_policy: always
+    ports:
+      - "8090:8090"
     volumes:
       - ../files/pb_data:/pb_data
       - ../files/pb_public:/pb_public

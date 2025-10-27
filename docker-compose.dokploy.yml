@@ -3,8 +3,8 @@ services:
     image: mussingtonr/pocketbase:latest
     pull_policy: always
     restart: unless-stopped
-    expose:
-      - "8090"
+    ports:
+      - "8090:8090"
     volumes:
       - ../files/pb_data:/pb_data
       - ../files/pb_public:/pb_public
