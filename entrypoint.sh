@@ -24,43 +24,16 @@ fi
 # Wait for data directory to be available
 mkdir -p "${POCKETBASE_DATA_DIR}"
 
-# Create admin user if credentials are provided
+# Create admin user if credentials are provided (before starting the server)
 if [ -n "$POCKETBASE_ADMIN_EMAIL" ] && [ -n "$POCKETBASE_ADMIN_PASSWORD" ]; then
-    echo "Admin credentials provided, will create/update admin user..."
+    echo "Admin credentials provided, setting up admin user..."
     
-    # Start PocketBase in background to create admin
-    $CMD &
-    PB_PID=$!
-    
-    # Wait for PocketBase to start (check if port is listening)
-    echo "Waiting for PocketBase to start..."
-    for i in $(seq 1 30); do
-        if nc -z localhost ${POCKETBASE_PORT} 2>/dev/null; then
-            echo "PocketBase started, creating/updating admin user..."
-            break
-        fi
-        if [ $i -eq 30 ]; then
-            echo "Timeout waiting for PocketBase to start"
-            kill $PB_PID 2>/dev/null || true
-            exit 1
-        fi
-        sleep 1
-    done
-    
-    # Create or update admin user using the superuser command (PocketBase 0.9+)
-    /usr/local/bin/pocketbase superuser create "$POCKETBASE_ADMIN_EMAIL" "$POCKETBASE_ADMIN_PASSWORD" \
-        --dir="${POCKETBASE_DATA_DIR}" 2>/dev/null || \
-    /usr/local/bin/pocketbase superuser update "$POCKETBASE_ADMIN_EMAIL" "$POCKETBASE_ADMIN_PASSWORD" \
-        --dir="${POCKETBASE_DATA_DIR}" || true
+    # Use the superuser upsert command which works without the server running
+    # This will create or update the superuser
+    /usr/local/bin/pocketbase superuser upsert "$POCKETBASE_ADMIN_EMAIL" "$POCKETBASE_ADMIN_PASSWORD" \
+        --dir="${POCKETBASE_DATA_DIR}" 2>&1 || true
     
     echo "Admin user setup complete"
-    
-    # Stop the background process
-    kill $PB_PID 2>/dev/null || true
-    wait $PB_PID 2>/dev/null || true
-    
-    # Small delay to ensure clean shutdown
-    sleep 2
 fi
 
 # Start PocketBase normally
