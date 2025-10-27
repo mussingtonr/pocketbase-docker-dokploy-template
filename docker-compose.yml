@@ -4,13 +4,13 @@ services:
     image: mussingtonr/pocketbase:latest
     container_name: pocketbase
     restart: unless-stopped
-    ports:
-      - "80:80"
+    expose:
+      - "8090"
     volumes:
-      - ./pb_data:/pb_data
-      - ./pb_public:/pb_public
-      - ./pb_migrations:/pb_migrations
-      - ./pb_hooks:/pb_hooks
+      - "/etc/dokploy/templates/${HASH}/pb_data:/pb_data"
+      - "/etc/dokploy/templates/${HASH}/pb_migrations:/pb_migrations"
+      - "/etc/dokploy/templates/${HASH}/pb_hooks:/pb_hooks"
+      - "/etc/dokploy/templates/${HASH}/pb_public:/pb_public"
     environment:
       - TZ=America/New_York
       # See docker-compose.example.yml for all available environment variables

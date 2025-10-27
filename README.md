@@ -26,7 +26,7 @@ This Docker image is a build of [pocketbase.io](https://pocketbase.io) - Open So
 
 ## Application Setup
 
-Access the web UI at `<your-ip>:80`, for more information check out [PocketBase](https://pocketbase.io).
+Access the web UI at `<your-ip>:8090`, for more information check out [PocketBase](https://pocketbase.io).
 
 ## Volume Directories
 
@@ -46,7 +46,7 @@ I've added support for several environment variables to make the image more conf
 | `POCKETBASE_ADMIN_EMAIL` | Admin user email. When set with password, automatically creates or updates the admin user on startup | Optional | - |
 | `POCKETBASE_ADMIN_PASSWORD` | Admin user password | Optional | - |
 | `POCKETBASE_ENCRYPTION_KEY` | Encrypts application settings in the database (OAuth2 secrets, SMTP passwords, etc.) | Optional | - |
-| `POCKETBASE_PORT` | Server port number | Optional | `80` |
+| `POCKETBASE_PORT` | Server port number | Optional | `8090` |
 | `POCKETBASE_DATA_DIR` | Data directory path | Optional | `/pb_data` |
 | `POCKETBASE_PUBLIC_DIR` | Static files directory path | Optional | `/pb_public` |
 | `POCKETBASE_MIGRATIONS_DIR` | Migrations directory path | Optional | `/pb_migrations` |
@@ -65,7 +65,7 @@ services:
     container_name: pocketbase
     restart: unless-stopped
     ports:
-      - "80:80"
+      - "8090:8090"
     volumes:
       - /path/to/data:/pb_data
       - /path/to/public:/pb_public        # Optional

@@ -19,7 +19,7 @@ RUN LATEST_VERSION=$(curl -s https://api.github.com/repos/pocketbase/pocketbase/
 FROM alpine:3
 RUN apk update && apk add ca-certificates netcat-openbsd && rm -rf /var/cache/apk/*
 
-EXPOSE 80
+EXPOSE 8090
 
 COPY --from=downloader /pocketbase /usr/local/bin/pocketbase
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh

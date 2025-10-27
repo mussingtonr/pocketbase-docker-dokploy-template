@@ -5,7 +5,7 @@ services:
     container_name: pocketbase
     restart: unless-stopped
     ports:
-      - "80:80"
+      - "8090:8090"
     volumes:
       - ./pb_data:/pb_data
       - ./pb_public:/pb_public
@@ -25,7 +25,7 @@ services:
       # Generate a secure random key: openssl rand -base64 32
       # - POCKETBASE_ENCRYPTION_KEY=your-encryption-key-here
       
-      # Optional: Custom port (default: 80)
+      # Optional: Custom port (default: 8090)
       # - POCKETBASE_PORT=8090
       
       # Optional: Custom directory paths (if you need to change the defaults)

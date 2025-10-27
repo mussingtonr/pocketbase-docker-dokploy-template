@@ -2,6 +2,8 @@ services:
   pocketbase:
     image: mussingtonr/pocketbase:latest
     restart: unless-stopped
+    expose:
+      - "8090"
     volumes:
       - ../files/pb_data:/pb_data
       - ../files/pb_public:/pb_public
