@@ -1,6 +1,7 @@
 services:
   pocketbase:
     image: mussingtonr/pocketbase:latest
+    pull_policy: always
     restart: unless-stopped
     expose:
       - "8090"
