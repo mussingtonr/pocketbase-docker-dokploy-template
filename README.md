@@ -1,4 +1,3 @@
-
 # PocketBase Docker Image
 
 [![Docker Image Version](https://img.shields.io/docker/v/mussingtonr/pocketbase?sort=semver&label=version&style=for-the-badge&logo=docker&logoColor=white)](https://hub.docker.com/r/mussingtonr/pocketbase)
@@ -15,7 +14,7 @@ Pulling `mussingtonr/pocketbase:latest` will automatically retrieve the correct 
 
 This image supports multiple architectures, so you can run it on various platforms:
 
-- `linux/amd64` - x86-64 
+- `linux/amd64` - x86-64
 - `linux/arm64` - ARM64
 - `linux/arm/v7` - ARMv7
 
@@ -40,16 +39,16 @@ I've configured the image to support multiple directories that are mounted into 
 
 I've added support for several environment variables to make the image more configurable:
 
-| Variable | Description | Required | Default |
-|----------|-------------|----------|---------|
-| `POCKETBASE_ADMIN_EMAIL` | Admin user email. When set with password, automatically creates or updates the admin user on startup | Optional | - |
-| `POCKETBASE_ADMIN_PASSWORD` | Admin user password | Optional | - |
-| `POCKETBASE_ENCRYPTION_KEY` | Encrypts application settings in the database (OAuth2 secrets, SMTP passwords, etc.) | Optional | - |
-| `POCKETBASE_PORT` | Server port number | Optional | `8090` |
-| `POCKETBASE_DATA_DIR` | Data directory path | Optional | `/pb_data` |
-| `POCKETBASE_PUBLIC_DIR` | Static files directory path | Optional | `/pb_public` |
-| `POCKETBASE_MIGRATIONS_DIR` | Migrations directory path | Optional | `/pb_migrations` |
-| `POCKETBASE_HOOKS_DIR` | Hooks directory path | Optional | `/pb_hooks` |
+| Variable                      | Description                                                                                          | Required | Default            |
+| ----------------------------- | ---------------------------------------------------------------------------------------------------- | -------- | ------------------ |
+| `POCKETBASE_ADMIN_EMAIL`    | Admin user email. When set with password, automatically creates or updates the admin user on startup | Optional | -                  |
+| `POCKETBASE_ADMIN_PASSWORD` | Admin user password                                                                                  | Optional | -                  |
+| `POCKETBASE_ENCRYPTION_KEY` | Encrypts application settings in the database (OAuth2 secrets, SMTP passwords, etc.)                 | Optional | -                  |
+| `POCKETBASE_PORT`           | Server port number                                                                                   | Optional | `8090`           |
+| `POCKETBASE_DATA_DIR`       | Data directory path                                                                                  | Optional | `/pb_data`       |
+| `POCKETBASE_PUBLIC_DIR`     | Static files directory path                                                                          | Optional | `/pb_public`     |
+| `POCKETBASE_MIGRATIONS_DIR` | Migrations directory path                                                                            | Optional | `/pb_migrations` |
+| `POCKETBASE_HOOKS_DIR`      | Hooks directory path                                                                                 | Optional | `/pb_hooks`      |
 
 # Usage
 
@@ -99,12 +98,12 @@ services:
     environment:
       # Timezone configuration
       - TZ=America/New_York
-      
+    
       # Optional: Admin user credentials
       # Uncomment and set these to automatically create/update an admin user
       # - POCKETBASE_ADMIN_EMAIL=admin@example.com
       # - POCKETBASE_ADMIN_PASSWORD=your-secure-password-here
-      
+    
       # Optional: Encryption key for securing settings in the database
       # Generate a secure random key: openssl rand -base64 32
       # - POCKETBASE_ENCRYPTION_KEY=your-encryption-key-here
